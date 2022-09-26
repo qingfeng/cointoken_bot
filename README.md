@@ -11,6 +11,9 @@ export TELOXIDE_TOKEN=<TELOXIDE_TOKEN>
 ## command line
 `cointoken-cli --from ETH --to USD --amount 1`
 
+# ONLINE BOT
+online bot: https://t.me/coin_token_bot
+
 # USE cross build
 
 ```
