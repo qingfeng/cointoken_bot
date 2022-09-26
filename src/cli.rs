@@ -1,3 +1,4 @@
+use std::error::Error;
 use bpaf::Bpaf;
 use cointoken_bot::get_price;
 
@@ -13,8 +14,10 @@ struct FromTokenAndToToken {
     amount: f64,
 }
 
-fn main() {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
     let opts = from_token_and_to_token().run();
-    let price = get_price(&opts.from, &opts.to, opts.amount).unwrap();
+    let price = get_price(&opts.from, &opts.to, opts.amount).await?;
     println!("{} {} == {} {}", opts.amount, opts.from, price, opts.to);
+    Ok(())
 }
