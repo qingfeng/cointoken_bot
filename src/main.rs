@@ -37,7 +37,7 @@ async fn answer(
             let mut btoken = "USD".to_string();
             if cmd != "" {
                 let cmd = cmd.split_whitespace().collect::<Vec<&str>>();
-                amount = cmd[0].parse::<f64>().unwrap();
+                amount = cmd[0].parse::<f64>()?;
                 atoken = cmd[1].to_uppercase();
                 btoken = cmd[3].to_uppercase();
             }
